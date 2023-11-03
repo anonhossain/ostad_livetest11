@@ -87,14 +87,18 @@ class homeScreen extends StatelessWidget {
       children: [
        ...List.generate(
          weatherinfo.length,
-         Column(
-           children: [
-             Text('City: ', style: TextStyle(fontSize: 18),),
-             Text('Temperature: ', style: TextStyle(color: Colors.grey),),
-             Text('Condition: ',style: TextStyle(color: Colors.grey),),
-             Text('Humidity: ',style: TextStyle(color: Colors.grey),),
-             Text('Wind Speed: ',style: TextStyle(color: Colors.grey),),
-           ],
+             (index) =>
+         Card(
+           child: Column(
+             crossAxisAlignment: CrossAxisAlignment.start,
+             children: [
+               Text('City: ${weatherinfo[index]["city"]} ', style: TextStyle(fontSize: 18),),
+               Text('Temperature: ${weatherinfo[index]["temperature"]} ', style: TextStyle(color: Colors.grey),),
+               Text('Condition: ${weatherinfo[index]["condition"]} ',style: TextStyle(color: Colors.grey),),
+               Text('Humidity: ${weatherinfo[index]["humidity"]}',style: TextStyle(color: Colors.grey),),
+               Text('Wind Speed: ${weatherinfo[index]["windSpeed"]} ',style: TextStyle(color: Colors.grey),),
+             ],
+           ),
          ),
        ),
       ],
